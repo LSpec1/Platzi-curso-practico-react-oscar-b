@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import '../styles/ProductItem.scss';
 
 import img_cart from '../assets/icons/bt_add_to_cart.svg'
-const imgBike = "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 
-const ProductItem = (props) => {
+const ProductItem = ({ product }) => {
 	const [cart, setCart] = useState(0);
 
 	const handleCart = () => {
@@ -13,11 +12,11 @@ const ProductItem = (props) => {
 
 	return (
 		<div className="ProductItem">
-			<img src={imgBike} alt="" />
+			<img src={product.images} alt={product.title} />
 			<div className="product-info">
 				<div>
-					<p>${props.price}</p>
-					<p>{props.name}</p>
+					<p>${product.price}</p>
+					<p>{product.title}</p>
 				</div>
 				<figure onClick={handleCart}>
 					<img src={img_cart} alt="" />
