@@ -9,14 +9,22 @@ const useInitialState = () => {
 
     const addToCart = (payload) => {
         setState({
-            ...state,
-            cart: [...state.cart, payload]
+            ...state, //mantener valores anteriores
+            cart: [...state.cart, payload] // despues de los anteriores añade 'payload'
+        })
+    }
+
+    const removeFromCart = (payload) => {
+        setState({
+            ...state, //mantener valores anteriores
+            cart: state.cart.filter(items => items.id != payload.id)
         })
     }
 
     return {
         state,
-        addToCart
+        addToCart,
+        removeFromCart
     }
 }
 

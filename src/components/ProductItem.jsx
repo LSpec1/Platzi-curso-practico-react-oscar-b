@@ -6,11 +6,9 @@ import img_cart from '../assets/icons/bt_add_to_cart.svg'
 
 const ProductItem = ({ product }) => {
 	const { addToCart } = useContext(AppContext);
-	const [cart, setCart] = useState(0);
 
 	const handleClick = item => {
 		addToCart(item);
-		setCart(cart+1);
 	}
 
 	return (
@@ -23,7 +21,6 @@ const ProductItem = ({ product }) => {
 				</div>
 				<figure onClick={() => handleClick(product)}>
 					<img src={img_cart} alt="" />
-					{cart}
 				</figure>
 			</div>
 		</div>
